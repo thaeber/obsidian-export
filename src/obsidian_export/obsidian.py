@@ -17,6 +17,15 @@ def is_obsidian_running():
     )
 
 
+def _decode_command_output(output: bytes | str | None) -> str:
+    """Decode subprocess output without relying on the machine's default code page."""
+    if output is None:
+        return ''
+    if isinstance(output, str):
+        return output
+    return output.decode('utf-8', errors='replace')
+
+
 def run_obsidian_command(*command: str) -> str | None:
     """Run an Obsidian command using the CLI."""
     try:
@@ -24,16 +33,17 @@ def run_obsidian_command(*command: str) -> str | None:
         result = subprocess.run(
             ['obsidian', *command],
             capture_output=True,
-            text=True,
             check=True,
-            shell=True,
+            shell=False,
         )
-        logger.debug(f'Command output: {result.stdout}')
-        return result.stdout
+        stdout = _decode_command_output(result.stdout)
+        logger.debug(f'Command output: {stdout}')
+        return stdout
     except FileNotFoundError:
         logger.error('obsidian command not found')
     except subprocess.CalledProcessError as e:
-        logger.error(f'Command failed with error: {e.stderr}')
+        stderr = _decode_command_output(e.stderr)
+        logger.error(f'Command failed with error: {stderr}')
 
 
 class ObsidianVaultInfo(pydantic.BaseModel):
@@ -147,7 +157,7 @@ def get_number_of_linked_files(
     result = run_obsidian_command(*cmd)
     try:
         return int(result.strip())
-    except ValueError, AttributeError:
+    except (ValueError, AttributeError):
         logger.error(f'Failed to get number of linked files for {file}')
         return 0
 
