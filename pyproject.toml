@@ -1,6 +1,6 @@
 [project]
 name = "obsidian-export"
-version = "0.1.2"
+version = "0.1.3"
 description = "Export connected Obsidian notes and assets for one or more root notes."
 readme = "README.md"
 requires-python = ">=3.14"
@@ -29,7 +29,7 @@ quote-style = "single"
 skip-string-normalization = true
 
 [tool.bumpversion]
-current_version = "0.1.2"
+current_version = "0.1.3"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"

@@ -1,4 +1,12 @@
 <!-- insertion marker -->
+<a name="v0.1.3"></a>
+
+## [v0.1.3](https://github.com/thaeber/obsidian-export/compare/v0.1.2...v0.1.3) (2026-10-09)
+
+### Bug Fixes
+
+- Output decoding for subprocess commands to avoid decoding errors ([ec799de](https://github.com/thaeber/obsidian-export/commit/ec799dec2118629a5c859908380ce7089a47afca))
+
 <a name="v0.1.2"></a>
 
 ## [v0.1.2](https://github.com/thaeber/obsidian-export/compare/v0.1.1...v0.1.2) (2026-10-09)
