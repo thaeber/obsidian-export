@@ -1,4 +1,11 @@
 <!-- insertion marker -->
+<a name="v0.1.2"></a>
+
+## [v0.1.2](https://github.com/thaeber/obsidian-export/compare/v0.1.1...v0.1.2) (2026-10-09)
+
+### Bug Fixes
+
+- Provide error messages if a file or vault is not found. ([3aae3a9](https://github.com/thaeber/obsidian-export/commit/3aae3a9881644e409c2a00de1f215c66a25a0f40))
 
 <a name="v0.1.1"></a>
 
@@ -19,3 +26,4 @@
 ### Features
 
 - Initial implementation ([2572b01](https://github.com/thaeber/obsidian-export/commit/2572b01d4d7f6d2019f10526fbbf0ce33e39bca8))
+
