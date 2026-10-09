@@ -1,11 +1,11 @@
+import datetime as dt
 import logging
-from pathlib import Path
 import subprocess
-from typing import Callable
+from collections.abc import Callable
+from pathlib import Path
 
 import psutil
 import pydantic
-import datetime as dt
 
 logger = logging.getLogger(__name__)
 
@@ -132,7 +132,7 @@ def get_number_of_linked_files(
     result = run_obsidian_command(*cmd)
     try:
         return int(result.strip())
-    except (ValueError, AttributeError):
+    except ValueError, AttributeError:
         logger.error(f'Failed to get number of linked files for {file}')
         return 0
 

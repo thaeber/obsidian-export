@@ -24,10 +24,10 @@ The project relies on Obsidian's command-line interface to enumerate vault state
 To enable the CLI in Obsidian itself on the latest version:
 
 1. Open Obsidian.
-2. Go to Settings.
-3. Open the General section.
-4. Enable the option that activates the Obsidian command-line interface / local CLI support.
-5. Restart Obsidian if prompted, then verify `obsidian --help` works in a terminal.
+1. Go to Settings.
+1. Open the General section.
+1. Enable the option that activates the Obsidian command-line interface / local CLI support.
+1. Restart Obsidian if prompted, then verify `obsidian --help` works in a terminal.
 
 This is the current setup path in newer Obsidian releases, and it is required for the native `obsidian` command used by this project to be available on your system.
 
@@ -86,10 +86,10 @@ obsidian-export --debug --vault "My Vault" --archive ./archive "Projects/Project
 The exporter:
 
 1. Resolves the target Obsidian vault.
-2. Reads the root note(s) you provide.
-3. Collects all files linked from those notes.
-4. Copies each file into the archive directory under the same relative path structure.
-5. Continues until all linked files have been exported.
+1. Reads the root note(s) you provide.
+1. Collects all files linked from those notes.
+1. Copies each file into the archive directory under the same relative path structure.
+1. Continues until all linked files have been exported.
 
 This makes it useful for archiving a knowledge base subtree or preparing a note collection for backup, sharing, or external processing.
 
