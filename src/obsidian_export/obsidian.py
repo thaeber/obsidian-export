@@ -87,7 +87,15 @@ def get_vault_information(vault: str | None = None) -> ObsidianVaultInfo:
             'size': int,
         },
     )
-    return ObsidianVaultInfo.model_validate(vault_info_dict)
+    try:
+        return ObsidianVaultInfo.model_validate(vault_info_dict)
+    except pydantic.ValidationError as e:
+        logger.error(
+            f'Could not retrieve vault information for vault: {vault}.'
+            ' Possible reasons: the vault does not exist, Obsidian is not'
+            ' running, or the Obsidian CLI is not available.'
+        )
+        raise RuntimeError(f'Failed to get vault information for {vault}') from e
 
 
 def get_file_information(
@@ -116,7 +124,14 @@ def get_file_information(
             'modified': to_datetime,
         },
     )
-    return ObsidianFileInfo.model_validate(file_info_dict)
+    try:
+        return ObsidianFileInfo.model_validate(file_info_dict)
+    except pydantic.ValidationError as e:
+        logger.error(
+            f'Could not retrieve file information for file: {file}.'
+            ' Does the file exist in the vault?'
+        )
+        raise RuntimeError(f'Failed to get file information for {file}') from e
 
 
 def get_number_of_linked_files(

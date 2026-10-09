@@ -45,4 +45,7 @@ def main(
     if debug:
         logging.getLogger().setLevel(logging.DEBUG)
 
-    export_notes(root_notes, vault, archive)
+    try:
+        export_notes(root_notes, vault, archive)
+    except Exception as e:
+        raise click.ClickException(f'{e}') from e
