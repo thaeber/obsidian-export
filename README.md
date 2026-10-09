@@ -35,10 +35,10 @@ Official Obsidian documentation: https://help.obsidian.md/advanced/command-line-
 
 ## Installation
 
-Install the CLI as a `uv` tool:
+Install the CLI as a `uv` tool from the GitHub repository:
 
 ```bash
-uv tool install --editable .
+uv tool install "git+https://github.com/thaeber/obsidian-export.git"
 ```
 
 This installs the `obsidian-export` command into your `uv` tool environment and makes it available from the terminal.
